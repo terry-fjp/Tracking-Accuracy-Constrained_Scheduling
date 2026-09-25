@@ -2,9 +2,7 @@
 
 Research code and synthetic scene inputs for **Tracking-Accuracy-Constrained Scheduling for Active–Passive Observation Constellations of Noncooperative Space-Object Clusters**.
 
-**Authors:** Jiapeng Feng, Yuqing Li, Sensen Guo, Wei Zhao, Xuhai Wang, and Jun Zhou.  
-**Corresponding author:** Jiapeng Feng — fengjp@microsate.com  
-**Repository:** https://github.com/terry-fjp/Tracking-Accuracy-Constrained_Scheduling
+
 
 This repository contains the scheduling and estimation implementation, experiment configurations, eight synthetic orbital scenes, and selected diagnostic data. The manuscript, LaTeX template, publication figures, plotting scripts, and full experiment-result archives are not included in this directory. Experiment outputs are generated locally by the commands below.
 
