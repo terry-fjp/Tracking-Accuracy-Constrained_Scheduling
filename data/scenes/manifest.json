@@ -1,0 +1,66 @@
+[
+  {
+    "scene_id": 2101,
+    "targets": 12,
+    "observers": 72,
+    "source_sha256": "125e308832298c9b37dc85c082a68a75d05aba08468b20dd9313b8ae9ccf893c",
+    "canonical_model_sha256": "6b0ef75d8d32cac77d44bda7e488e26b378875579c4c76eb137d2e333bf757c6",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2102,
+    "targets": 12,
+    "observers": 72,
+    "source_sha256": "6a4a892a32de03719b4a8fc7e77a0ccaa1d895af62c4d824f9fae3dc8d5be42d",
+    "canonical_model_sha256": "82a75c926119087828a7196bae01ad890b2ad4e5f3e77533497fc23e8f1189d2",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2103,
+    "targets": 18,
+    "observers": 72,
+    "source_sha256": "c842f9c7a076a0cda5429fe1c2b51e5a4eb44ff1480784dadafeb407bc5b874f",
+    "canonical_model_sha256": "147f3dda8eea9a593963bd2bc890dc4ef5bc239e95082fdab019f106d42fe3c4",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2104,
+    "targets": 18,
+    "observers": 72,
+    "source_sha256": "df147effc863e22f1927f5d9241b1d92c650f5a50671f17276cb2eacd8a587d9",
+    "canonical_model_sha256": "a85626130cc4bfc17527aa18ecb35d083c087787cc9c2d81726d312a249c3ecc",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2105,
+    "targets": 24,
+    "observers": 72,
+    "source_sha256": "5dfd9eb0d87bdc0a6169adf43ae5da4610b583e1965173c749214d19029b86fa",
+    "canonical_model_sha256": "215ec660ee7e8445fc34e8ce27a2a6d8e465e44d67432f80a922f1c4a1dafe79",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2106,
+    "targets": 24,
+    "observers": 72,
+    "source_sha256": "ab9c1c4e75cd27c5233ca31a828555ac52b44df44588cd983435d152ca14839a",
+    "canonical_model_sha256": "7a3ee9a79083baaaf3b9f6b05f5fcc6737c1cdd4739ae4deaf31339a130bcb5e",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2107,
+    "targets": 12,
+    "observers": 72,
+    "source_sha256": "981b57f3d695f264eb464845c8490e21f307392ff69a298fdee63a973c73afef",
+    "canonical_model_sha256": "9eda775d9dc8940248e68289e700510ddc87047d1fc2ed143f351ee0fd282eb7",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  },
+  {
+    "scene_id": 2108,
+    "targets": 18,
+    "observers": 72,
+    "source_sha256": "c17e10f237db24ea91518c5def5f1eeb9fdc2022d6b78122b064ceb1cd831815",
+    "canonical_model_sha256": "8c8910d217436cbcd4048627f53bf6accb0c287a8a0404b8742b106aa0fe546b",
+    "note": "Reference P1: planning500m/25mps, hold200s, measurement100urad/50m. Other conditions use experiment overrides."
+  }
+]

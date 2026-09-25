@@ -1,0 +1,950 @@
+{
+  "schema_version": "1.0",
+  "scene_id": 2105,
+  "seed": 2105,
+  "epoch_utc": "2026-09-08T00:00:00Z",
+  "frame": "Earth-centered inertial; circular two-body elements",
+  "target_source": "synthetic independent elements; no real-object identity",
+  "config": {
+    "dt": 0.2,
+    "horizon": 900.0,
+    "init_deadline": 120.0,
+    "hold": 200.0,
+    "epsilon_r": 500.0,
+    "epsilon_v": 25.0,
+    "q": 0.0001,
+    "sigma_angle": 0.0001,
+    "sigma_range": 50.0,
+    "max_range": 2000000.0,
+    "off_nadir": 60.0,
+    "fov": 1.0,
+    "omega": 5.0,
+    "acceleration": 2.5,
+    "settle": 2.0,
+    "capture": 5.0,
+    "continuous_limit": 60.0,
+    "laser_budget": 180.0,
+    "warning": 0.8,
+    "fixed_dwell": 20.0,
+    "duration_multipliers": [
+      1.0,
+      1.5
+    ]
+  },
+  "observers": [
+    {
+      "id": 0,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 335.5685154355124
+      }
+    },
+    {
+      "id": 1,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 375.5685154355124
+      }
+    },
+    {
+      "id": 2,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 415.5685154355124
+      }
+    },
+    {
+      "id": 3,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 455.5685154355124
+      }
+    },
+    {
+      "id": 4,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 495.5685154355124
+      }
+    },
+    {
+      "id": 5,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 535.5685154355124
+      }
+    },
+    {
+      "id": 6,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 575.5685154355124
+      }
+    },
+    {
+      "id": 7,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 615.5685154355124
+      }
+    },
+    {
+      "id": 8,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 49.68727127171622,
+        "phase_deg": 655.5685154355124
+      }
+    },
+    {
+      "id": 9,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 340.5685154355124
+      }
+    },
+    {
+      "id": 10,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 380.5685154355124
+      }
+    },
+    {
+      "id": 11,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 420.5685154355124
+      }
+    },
+    {
+      "id": 12,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 460.5685154355124
+      }
+    },
+    {
+      "id": 13,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 500.5685154355124
+      }
+    },
+    {
+      "id": 14,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 540.5685154355124
+      }
+    },
+    {
+      "id": 15,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 580.5685154355124
+      }
+    },
+    {
+      "id": 16,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 620.5685154355124
+      }
+    },
+    {
+      "id": 17,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 94.68727127171621,
+        "phase_deg": 660.5685154355124
+      }
+    },
+    {
+      "id": 18,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 345.5685154355124
+      }
+    },
+    {
+      "id": 19,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 385.5685154355124
+      }
+    },
+    {
+      "id": 20,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 425.5685154355124
+      }
+    },
+    {
+      "id": 21,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 465.5685154355124
+      }
+    },
+    {
+      "id": 22,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 505.5685154355124
+      }
+    },
+    {
+      "id": 23,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 545.5685154355124
+      }
+    },
+    {
+      "id": 24,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 585.5685154355124
+      }
+    },
+    {
+      "id": 25,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 625.5685154355124
+      }
+    },
+    {
+      "id": 26,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 139.6872712717162,
+        "phase_deg": 665.5685154355124
+      }
+    },
+    {
+      "id": 27,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 350.5685154355124
+      }
+    },
+    {
+      "id": 28,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 390.5685154355124
+      }
+    },
+    {
+      "id": 29,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 430.5685154355124
+      }
+    },
+    {
+      "id": 30,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 470.5685154355124
+      }
+    },
+    {
+      "id": 31,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 510.5685154355124
+      }
+    },
+    {
+      "id": 32,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 550.5685154355124
+      }
+    },
+    {
+      "id": 33,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 590.5685154355124
+      }
+    },
+    {
+      "id": 34,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 630.5685154355124
+      }
+    },
+    {
+      "id": 35,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 184.6872712717162,
+        "phase_deg": 670.5685154355124
+      }
+    },
+    {
+      "id": 36,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 355.5685154355124
+      }
+    },
+    {
+      "id": 37,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 395.5685154355124
+      }
+    },
+    {
+      "id": 38,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 435.5685154355124
+      }
+    },
+    {
+      "id": 39,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 475.5685154355124
+      }
+    },
+    {
+      "id": 40,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 515.5685154355124
+      }
+    },
+    {
+      "id": 41,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 555.5685154355124
+      }
+    },
+    {
+      "id": 42,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 595.5685154355124
+      }
+    },
+    {
+      "id": 43,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 635.5685154355124
+      }
+    },
+    {
+      "id": 44,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 229.6872712717162,
+        "phase_deg": 675.5685154355124
+      }
+    },
+    {
+      "id": 45,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 360.5685154355124
+      }
+    },
+    {
+      "id": 46,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 400.5685154355124
+      }
+    },
+    {
+      "id": 47,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 440.5685154355124
+      }
+    },
+    {
+      "id": 48,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 480.5685154355124
+      }
+    },
+    {
+      "id": 49,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 520.5685154355124
+      }
+    },
+    {
+      "id": 50,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 560.5685154355124
+      }
+    },
+    {
+      "id": 51,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 600.5685154355124
+      }
+    },
+    {
+      "id": 52,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 640.5685154355124
+      }
+    },
+    {
+      "id": 53,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 274.6872712717162,
+        "phase_deg": 680.5685154355124
+      }
+    },
+    {
+      "id": 54,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 365.5685154355124
+      }
+    },
+    {
+      "id": 55,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 405.5685154355124
+      }
+    },
+    {
+      "id": 56,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 445.5685154355124
+      }
+    },
+    {
+      "id": 57,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 485.5685154355124
+      }
+    },
+    {
+      "id": 58,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 525.5685154355124
+      }
+    },
+    {
+      "id": 59,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 565.5685154355124
+      }
+    },
+    {
+      "id": 60,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 605.5685154355124
+      }
+    },
+    {
+      "id": 61,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 645.5685154355124
+      }
+    },
+    {
+      "id": 62,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 319.6872712717162,
+        "phase_deg": 685.5685154355124
+      }
+    },
+    {
+      "id": 63,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 370.5685154355124
+      }
+    },
+    {
+      "id": 64,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 410.5685154355124
+      }
+    },
+    {
+      "id": 65,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 450.5685154355124
+      }
+    },
+    {
+      "id": 66,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 490.5685154355124
+      }
+    },
+    {
+      "id": 67,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 530.5685154355124
+      }
+    },
+    {
+      "id": 68,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 570.5685154355124
+      }
+    },
+    {
+      "id": 69,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 610.5685154355124
+      }
+    },
+    {
+      "id": 70,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 650.5685154355124
+      }
+    },
+    {
+      "id": 71,
+      "orbit": {
+        "radius_m": 7178137.0,
+        "inclination_deg": 60.0,
+        "raan_deg": 364.6872712717162,
+        "phase_deg": 690.5685154355124
+      }
+    }
+  ],
+  "targets": [
+    {
+      "id": 0,
+      "orbit": {
+        "radius_m": 7023200.941433843,
+        "inclination_deg": 59.99290646899976,
+        "raan_deg": 94.67362608061842,
+        "phase_deg": 419.85207294722943
+      },
+      "initial_sigma_position_m": 890.5340870679522,
+      "initial_sigma_velocity_m_s": 88.43687686280391
+    },
+    {
+      "id": 1,
+      "orbit": {
+        "radius_m": 7058393.382987838,
+        "inclination_deg": 59.98905850373107,
+        "raan_deg": 274.67070365853675,
+        "phase_deg": 479.9786438572819
+      },
+      "initial_sigma_position_m": 894.021328388723,
+      "initial_sigma_velocity_m_s": 106.77596250863722
+    },
+    {
+      "id": 2,
+      "orbit": {
+        "radius_m": 7058426.582781113,
+        "inclination_deg": 59.98949263200133,
+        "raan_deg": 94.67806457895924,
+        "phase_deg": 419.5636827760069
+      },
+      "initial_sigma_position_m": 982.0007930149034,
+      "initial_sigma_velocity_m_s": 99.33462888802597
+    },
+    {
+      "id": 3,
+      "orbit": {
+        "radius_m": 7003371.028303076,
+        "inclination_deg": 59.990619210253485,
+        "raan_deg": 274.69602068994897,
+        "phase_deg": 479.7243984470553
+      },
+      "initial_sigma_position_m": 883.2308967176773,
+      "initial_sigma_velocity_m_s": 79.85768051423196
+    },
+    {
+      "id": 4,
+      "orbit": {
+        "radius_m": 7044198.816651278,
+        "inclination_deg": 60.01923847891434,
+        "raan_deg": 94.67422153903507,
+        "phase_deg": 419.75866869321027
+      },
+      "initial_sigma_position_m": 1035.906308853026,
+      "initial_sigma_velocity_m_s": 71.9970735863834
+    },
+    {
+      "id": 5,
+      "orbit": {
+        "radius_m": 6997686.563808456,
+        "inclination_deg": 60.017807557589464,
+        "raan_deg": 274.6885904944481,
+        "phase_deg": 479.889427894604
+      },
+      "initial_sigma_position_m": 877.0226458102694,
+      "initial_sigma_velocity_m_s": 77.26983820443677
+    },
+    {
+      "id": 6,
+      "orbit": {
+        "radius_m": 7001166.928144926,
+        "inclination_deg": 59.999698044496085,
+        "raan_deg": 94.68545368900371,
+        "phase_deg": 419.486854275377
+      },
+      "initial_sigma_position_m": 818.8734624647308,
+      "initial_sigma_velocity_m_s": 98.338495196685
+    },
+    {
+      "id": 7,
+      "orbit": {
+        "radius_m": 7004467.573008509,
+        "inclination_deg": 60.007265342061714,
+        "raan_deg": 274.7120782245555,
+        "phase_deg": 479.72777202199535
+      },
+      "initial_sigma_position_m": 1093.525538003423,
+      "initial_sigma_velocity_m_s": 96.9912377407465
+    },
+    {
+      "id": 8,
+      "orbit": {
+        "radius_m": 7015657.887713051,
+        "inclination_deg": 60.00982471541831,
+        "raan_deg": 94.66896623433874,
+        "phase_deg": 419.81854975120257
+      },
+      "initial_sigma_position_m": 1138.7471069568223,
+      "initial_sigma_velocity_m_s": 79.33341148663021
+    },
+    {
+      "id": 9,
+      "orbit": {
+        "radius_m": 7054200.641523557,
+        "inclination_deg": 59.97992547813416,
+        "raan_deg": 274.68788061831725,
+        "phase_deg": 479.93334171962636
+      },
+      "initial_sigma_position_m": 878.8794358343514,
+      "initial_sigma_velocity_m_s": 77.65652093448894
+    },
+    {
+      "id": 10,
+      "orbit": {
+        "radius_m": 7059410.21532133,
+        "inclination_deg": 60.019706414209665,
+        "raan_deg": 94.67667305343501,
+        "phase_deg": 419.7985917978404
+      },
+      "initial_sigma_position_m": 996.4709486815358,
+      "initial_sigma_velocity_m_s": 85.77620502171284
+    },
+    {
+      "id": 11,
+      "orbit": {
+        "radius_m": 7017610.537283716,
+        "inclination_deg": 59.99904559935209,
+        "raan_deg": 274.67911891157286,
+        "phase_deg": 479.7966917722699
+      },
+      "initial_sigma_position_m": 1150.3344202730825,
+      "initial_sigma_velocity_m_s": 105.80314174579081
+    },
+    {
+      "id": 12,
+      "orbit": {
+        "radius_m": 6998569.779851768,
+        "inclination_deg": 59.987187960360615,
+        "raan_deg": 94.67039795175302,
+        "phase_deg": 419.73658773463256
+      },
+      "initial_sigma_position_m": 973.0304584133105,
+      "initial_sigma_velocity_m_s": 106.65373352014029
+    },
+    {
+      "id": 13,
+      "orbit": {
+        "radius_m": 6993091.4807719905,
+        "inclination_deg": 59.99728811220428,
+        "raan_deg": 274.66873857226875,
+        "phase_deg": 479.59176873100506
+      },
+      "initial_sigma_position_m": 943.5838477056558,
+      "initial_sigma_velocity_m_s": 89.07218442630233
+    },
+    {
+      "id": 14,
+      "orbit": {
+        "radius_m": 7000785.941470001,
+        "inclination_deg": 59.97869810489283,
+        "raan_deg": 94.7011961693854,
+        "phase_deg": 419.7045946273423
+      },
+      "initial_sigma_position_m": 1015.125068024832,
+      "initial_sigma_velocity_m_s": 100.96955191530417
+    },
+    {
+      "id": 15,
+      "orbit": {
+        "radius_m": 7032877.192408479,
+        "inclination_deg": 59.99421810775117,
+        "raan_deg": 274.70719422743184,
+        "phase_deg": 479.53709838690963
+      },
+      "initial_sigma_position_m": 1082.034670761734,
+      "initial_sigma_velocity_m_s": 95.88991811576588
+    },
+    {
+      "id": 16,
+      "orbit": {
+        "radius_m": 7031790.958620035,
+        "inclination_deg": 60.004363071565884,
+        "raan_deg": 94.69486830525132,
+        "phase_deg": 419.9261795649422
+      },
+      "initial_sigma_position_m": 1020.0943420962423,
+      "initial_sigma_velocity_m_s": 107.20807588561999
+    },
+    {
+      "id": 17,
+      "orbit": {
+        "radius_m": 7066893.105507031,
+        "inclination_deg": 59.97964623166897,
+        "raan_deg": 274.7116084968065,
+        "phase_deg": 479.82637054611064
+      },
+      "initial_sigma_position_m": 1125.0987699029388,
+      "initial_sigma_velocity_m_s": 85.41658458773783
+    },
+    {
+      "id": 18,
+      "orbit": {
+        "radius_m": 7011074.276417711,
+        "inclination_deg": 59.98938825399787,
+        "raan_deg": 94.69499111009107,
+        "phase_deg": 419.8328716617951
+      },
+      "initial_sigma_position_m": 952.6557340072125,
+      "initial_sigma_velocity_m_s": 76.64552097661092
+    },
+    {
+      "id": 19,
+      "orbit": {
+        "radius_m": 7066122.3464210285,
+        "inclination_deg": 60.02006596258935,
+        "raan_deg": 274.66374945489514,
+        "phase_deg": 479.8643456362447
+      },
+      "initial_sigma_position_m": 1134.173796092044,
+      "initial_sigma_velocity_m_s": 109.48569996985623
+    },
+    {
+      "id": 20,
+      "orbit": {
+        "radius_m": 6989690.924456426,
+        "inclination_deg": 60.01945838007913,
+        "raan_deg": 94.70989458416484,
+        "phase_deg": 420.00098661338853
+      },
+      "initial_sigma_position_m": 815.8022138480728,
+      "initial_sigma_velocity_m_s": 99.27719078844709
+    },
+    {
+      "id": 21,
+      "orbit": {
+        "radius_m": 7022776.484467915,
+        "inclination_deg": 59.982908875286675,
+        "raan_deg": 274.7058082733422,
+        "phase_deg": 479.5506765967789
+      },
+      "initial_sigma_position_m": 1161.2427400555725,
+      "initial_sigma_velocity_m_s": 105.46958167423645
+    },
+    {
+      "id": 22,
+      "orbit": {
+        "radius_m": 7063810.746919793,
+        "inclination_deg": 60.00950860343448,
+        "raan_deg": 94.69561356021408,
+        "phase_deg": 419.8624092997685
+      },
+      "initial_sigma_position_m": 943.5632118555915,
+      "initial_sigma_velocity_m_s": 90.43509290897268
+    },
+    {
+      "id": 23,
+      "orbit": {
+        "radius_m": 7047743.695569838,
+        "inclination_deg": 59.996847616056264,
+        "raan_deg": 274.68778185683396,
+        "phase_deg": 479.83185071427994
+      },
+      "initial_sigma_position_m": 1177.3918613134315,
+      "initial_sigma_velocity_m_s": 105.8791574229345
+    }
+  ]
+}

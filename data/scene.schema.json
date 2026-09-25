@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic constellation observation scene v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scene_id",
+    "seed",
+    "epoch_utc",
+    "frame",
+    "target_source",
+    "config",
+    "observers",
+    "targets"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scene_id": {
+      "type": "integer"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "epoch_utc": {
+      "type": "string"
+    },
+    "frame": {
+      "type": "string"
+    },
+    "target_source": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dt",
+        "horizon",
+        "init_deadline",
+        "hold",
+        "epsilon_r",
+        "epsilon_v",
+        "q",
+        "sigma_angle",
+        "sigma_range",
+        "max_range",
+        "off_nadir",
+        "fov",
+        "omega",
+        "acceleration",
+        "settle",
+        "capture",
+        "continuous_limit",
+        "laser_budget",
+        "warning",
+        "fixed_dwell",
+        "duration_multipliers"
+      ],
+      "properties": {
+        "dt": {
+          "type": "number"
+        },
+        "horizon": {
+          "type": "number"
+        },
+        "init_deadline": {
+          "type": "number"
+        },
+        "hold": {
+          "type": "number"
+        },
+        "epsilon_r": {
+          "type": "number"
+        },
+        "epsilon_v": {
+          "type": "number"
+        },
+        "q": {
+          "type": "number"
+        },
+        "sigma_angle": {
+          "type": "number"
+        },
+        "sigma_range": {
+          "type": "number"
+        },
+        "max_range": {
+          "type": "number"
+        },
+        "off_nadir": {
+          "type": "number"
+        },
+        "fov": {
+          "type": "number"
+        },
+        "omega": {
+          "type": "number"
+        },
+        "acceleration": {
+          "type": "number"
+        },
+        "settle": {
+          "type": "number"
+        },
+        "capture": {
+          "type": "number"
+        },
+        "continuous_limit": {
+          "type": "number"
+        },
+        "laser_budget": {
+          "type": "number"
+        },
+        "warning": {
+          "type": "number"
+        },
+        "fixed_dwell": {
+          "type": "number"
+        },
+        "duration_multipliers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      }
+    },
+    "observers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "orbit"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "orbit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "radius_m",
+              "inclination_deg",
+              "raan_deg",
+              "phase_deg"
+            ],
+            "properties": {
+              "radius_m": {
+                "type": "number"
+              },
+              "inclination_deg": {
+                "type": "number"
+              },
+              "raan_deg": {
+                "type": "number"
+              },
+              "phase_deg": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "orbit",
+          "initial_sigma_position_m",
+          "initial_sigma_velocity_m_s"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "orbit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "radius_m",
+              "inclination_deg",
+              "raan_deg",
+              "phase_deg"
+            ],
+            "properties": {
+              "radius_m": {
+                "type": "number"
+              },
+              "inclination_deg": {
+                "type": "number"
+              },
+              "raan_deg": {
+                "type": "number"
+              },
+              "phase_deg": {
+                "type": "number"
+              }
+            }
+          },
+          "initial_sigma_position_m": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "initial_sigma_velocity_m_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      }
+    }
+  }
+}
