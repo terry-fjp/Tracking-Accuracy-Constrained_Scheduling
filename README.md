@@ -227,13 +227,7 @@ All orbital scenes are synthetic. The model assumes known observer ephemerides, 
 
 Feasibility and compliance are checked on a discrete time grid. Covariance feasibility does not guarantee actual-error compliance, and numerical consistency checks do not establish continuous-time or flight performance.
 
-## Funding and disclosure
 
-This work was supported by the Science and Technology Commission of Shanghai Municipality, grant **25DZ3100700**, for the project “Research on Models for Onboard Intelligent Mission Decision-Making and Health Management” (English translation of the supplied project title).
-
-OpenAI Codex, version **26.901.51231**, assisted with translation and code development. The authors reviewed the code, simulation results, and entire manuscript and take responsibility for the content.
-
-The authors declare no conflicts of interest.
 
 ## Citation and license
 
