@@ -4,7 +4,7 @@ Research code and synthetic scene inputs for **Tracking-Accuracy-Constrained Sch
 
 
 
-This repository contains the scheduling and estimation implementation, experiment configurations, eight synthetic orbital scenes, and selected diagnostic data. The manuscript, LaTeX template, publication figures, plotting scripts, and full experiment-result archives are not included in this directory. Experiment outputs are generated locally by the commands below.
+This repository contains the scheduling and estimation implementation, experiment configurations, eight synthetic orbital scenes, and selected diagnostic data. The October revision experiments, plotting/report scripts, frozen protocols, compact historical summaries, and a baseline replay archive are included under `revision/experiments/`. The manuscript, LaTeX template, publication proofs, editor correspondence, local dependency runtimes, and full raw revision-result caches are excluded. Fresh experiment outputs are generated locally by the commands below.
 
 ## Research scope
 
@@ -16,6 +16,8 @@ The implementation schedules joint passive optical angle measurements and active
 - Independent target posteriors and covariance propagation between observations.
 - Hierarchical self-adaptive differential evolution (H-SADE) for scheduling search.
 - Nonlinear truth propagation and extended Kalman filter (EKF) evaluation using paired random realizations across methods.
+
+The method uses numerical optimization and filtering; it has no neural-network training stage or pretrained weights.
 
 Planning covariance feasibility and actual estimation-error compliance are evaluated separately. The experiments investigate conditional performance improvements; they do not establish universal superiority or flight readiness.
 
@@ -36,6 +38,11 @@ Tracking-Accuracy-Constrained_Scheduling/
 │       ├── mechanism.json
 │       ├── mechanism-curves.json
 │       └── scene-description.json
+├── requirements.txt             # Numerical dependency pin
+├── requirements-plot.txt        # Plotting dependency pins
+├── tools/prepare_revision.py    # Verify/extract frozen revision inputs
+├── docs/CHANGELOG.md
+├── revision/experiments/        # Frozen revision code, inputs and reference evidence
 └── src/
     └── space_cluster_scheduling/
         ├── __init__.py
@@ -58,14 +65,16 @@ Tracking-Accuracy-Constrained_Scheduling/
 
 ## Environment setup
 
-Use Python 3.12 and NumPy. The commands below target Linux/Bash; `run_controls.py` reads `/proc/cpuinfo` to record processor information. NumPy 2.3.5 is recommended for consistency with the manuscript preparation environment. No package installer configuration is included, so expose the source directory through `PYTHONPATH`.
+Use Python 3.12 and NumPy. The commands below target Linux/Bash; `run_controls.py` reads `/proc/cpuinfo` to record processor information. The dependencies are pinned for consistency with the manuscript preparation environment. Expose the source directory through `PYTHONPATH`; the repository is run from source rather than installed as a Python package.
 
 Run these commands from the repository root:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install numpy==2.3.5
+python -m pip install -r requirements.txt
+# For revision plots and reports, also install:
+python -m pip install -r requirements-plot.txt
 export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
 export OPENBLAS_NUM_THREADS=1
 export OMP_NUM_THREADS=1
@@ -221,9 +230,26 @@ python -m space_cluster_scheduling smoke
 
 This compares recomputed target-level estimation metrics against existing results and writes `docs/smoke-results.json`. The command uses the fixed P1 location; its input path is not redirected by `--output`.
 
+## October revision experiments (added 2026-10-28)
+
+The frozen revision copy adds hold intervals of 100/200/300/500 s, one-factor heuristic sensitivity, nested populations of 24/48/72/96 targets, fixed-calendar J2 replay, and a selected warning-0.7 variant tested against matched controls on new optimization seeds. Original default settings remain warning 0.8, multiplier 1.5, weights (0.5, 0.3, 0.2), and hold 200 s. Root `model.py` and `scheduler.py` now expose the multiplier and weights as configuration parameters; the numerical evaluator is unchanged.
+
+Start with the integrity/preparation commands:
+
+```bash
+python tools/prepare_revision.py --check-only
+python tools/prepare_revision.py
+```
+
+Then follow the complete ordered commands in [the revision README](revision/experiments/README.md). The main matrix has 960 scheduling runs and 160 J2 replays; the warning-variant validation adds 120 runs. The 1339-file baseline archive is bundled as a ZIP and verified against its existing hash manifest before extraction. Compact historical summaries and PASS records are clearly separated from fresh outputs. They do not certify a fresh reproduction of this release.
+
+**Run the new-seed validation checker before the final main summary/plot command.** It verifies the exact historical selection-data hash; regenerating the main summary first changes timing-dependent fields. The preparation helper refuses to overwrite a differing existing summary. See the revision README for the ordering and resumption details.
+
+For a new checkout, `validate-scenes` and `check-formulas` are the initial numerical checks. The optional frozen regression is more expensive: four full searches plus representative nonlinear replays. The old `smoke` command above still requires prior P1 outputs.
+
 ## Modeling limitations
 
-All orbital scenes are synthetic. The model assumes known observer ephemerides, target association, and availability of scheduled measurements. It does not model illumination, reflectance, laser-return link budgets, acquisition failure, or observer ephemeris errors. Truth and estimation use two-body dynamics with the specified process noise; perturbations such as J2 and atmospheric drag are not included.
+All orbital scenes are synthetic. The model assumes known observer ephemerides, target association, and availability of scheduled measurements. It does not model illumination, reflectance, laser-return link budgets, acquisition failure, or observer ephemeris errors. The original main/control experiments use two-body truth and estimation with the specified process noise. The separate revision experiment includes fixed-calendar J2 truth with two-body and matched J2 estimators; atmospheric drag is not included.
 
 Feasibility and compliance are checked on a discrete time grid. Covariance feasibility does not guarantee actual-error compliance, and numerical consistency checks do not establish continuous-time or flight performance.
 
@@ -231,6 +257,6 @@ Feasibility and compliance are checked on a discrete time grid. Covariance feasi
 
 ## Citation and license
 
-The associated manuscript title and author list are provided above. Publication details and a DOI should be added when available.
+The associated manuscript title is given above. Add verified publication details and the article DOI when available; no DOI is asserted here.
 
-No license file is included in this directory. No open-source license is asserted by this README; contact the corresponding author regarding reuse permissions.
+No license file is included in this directory. No open-source license is asserted by this README; contact the repository owner regarding reuse permissions.

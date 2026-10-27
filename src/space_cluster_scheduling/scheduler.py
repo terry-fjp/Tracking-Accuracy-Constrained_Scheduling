@@ -155,7 +155,7 @@ def decode(p:Physics,genes,mode='hold',opportunity='dynamic',grouping='dynamic',
             block=earliest//p.tick(30)
             urgent=p.risk(p.coast(i,P[i],int(pt[i]),earliest))
             ontime=int(deadline_priority and visits[i]==0 and acts[0][1].end<=p.tick(p.c.init_deadline))
-            return (ontime,-block,float(single),.5*order[i]+.3*min(urgent,3)/3+.2*min(regret,1),-i)
+            return (ontime,-block,float(single),p.c.ranking_weights[0]*order[i]+p.c.ranking_weights[1]*min(urgent,3)/3+p.c.ranking_weights[2]*min(regret,1),-i)
         i=max(options,key=priority);_,v,post=options[i][0]
         plans.append(v);P[i]=post;pt[i]=v.end;visits[i]+=1;last[v.satellite]=v
         laser[v.satellite]+=v.end-v.start;counts['shared_visits']+=int(v.shared)

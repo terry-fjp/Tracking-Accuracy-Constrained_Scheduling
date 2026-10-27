@@ -34,6 +34,13 @@ class Config:
     warning: float=0.8
     fixed_dwell: float=20.0
     duration_multipliers: tuple=(1.0,1.5)
+    ranking_weights: tuple=(0.5,0.3,0.2)
+
+    def __post_init__(self):
+        if len(self.duration_multipliers)!=2 or self.duration_multipliers[0]!=1 or self.duration_multipliers[1]<1:
+            raise ValueError("Expected shortest and one extended multiplier >= 1")
+        if len(self.ranking_weights)!=3 or min(self.ranking_weights)<0 or abs(sum(self.ranking_weights)-1)>1e-12:
+            raise ValueError("Ranking weights must be three nonnegative values summing to one")
 
 
 def circular(radius,inc,raan,phase,times):
@@ -188,7 +195,7 @@ class Physics:
                 first=length
                 result.append((length,current.copy(),self.hold_risk(i,current,k)))
                 if mode in ('fixed','fixed_hold','instant'):break
-                stop=min(limit,int(math.ceil(first*1.5)))
+                stop=min(limit,int(math.ceil(first*self.c.duration_multipliers[1])))
                 if stop==first:break
             elif first is not None and length==stop:
                 hold=self.hold_risk(i,current,k)

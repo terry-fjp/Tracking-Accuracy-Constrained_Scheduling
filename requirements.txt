@@ -1,0 +1,2 @@
+# Numerical experiments; Python 3.12
+numpy==2.3.5
