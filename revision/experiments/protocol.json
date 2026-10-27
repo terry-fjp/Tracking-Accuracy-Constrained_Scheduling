@@ -1,0 +1,262 @@
+{
+  "version": "revision-20261018-v1",
+  "scenes": [
+    2101,
+    2102,
+    2103,
+    2104,
+    2105,
+    2106,
+    2107,
+    2108
+  ],
+  "search_seeds": [
+    3101,
+    3102,
+    3103,
+    3104,
+    3105
+  ],
+  "repetitions": 200,
+  "budget": 48,
+  "workers": 4,
+  "blas_threads": 1,
+  "dt_s": 0.2,
+  "horizon_s": 900,
+  "evaluation_interval_s": [
+    120,
+    900
+  ],
+  "actual_thresholds": [
+    500,
+    25
+  ],
+  "settings": [
+    {
+      "id": "hold-100",
+      "group": "hold",
+      "overrides": {
+        "hold": 100
+      },
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "hold-200",
+      "group": "hold",
+      "overrides": {
+        "hold": 200
+      },
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "hold-300",
+      "group": "hold",
+      "overrides": {
+        "hold": 300
+      },
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "hold-500",
+      "group": "hold",
+      "overrides": {
+        "hold": 500
+      },
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "warning-0.7",
+      "group": "heuristic",
+      "overrides": {
+        "warning": 0.7
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "warning-0.9",
+      "group": "heuristic",
+      "overrides": {
+        "warning": 0.9
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "multiplier-1.25",
+      "group": "heuristic",
+      "overrides": {
+        "duration_multipliers": [
+          1,
+          1.25
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "multiplier-1.75",
+      "group": "heuristic",
+      "overrides": {
+        "duration_multipliers": [
+          1,
+          1.75
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "weights-622",
+      "group": "heuristic",
+      "overrides": {
+        "ranking_weights": [
+          0.6,
+          0.2,
+          0.2
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "weights-442",
+      "group": "heuristic",
+      "overrides": {
+        "ranking_weights": [
+          0.4,
+          0.4,
+          0.2
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "weights-631",
+      "group": "heuristic",
+      "overrides": {
+        "ranking_weights": [
+          0.6,
+          0.3,
+          0.1
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "weights-433",
+      "group": "heuristic",
+      "overrides": {
+        "ranking_weights": [
+          0.4,
+          0.3,
+          0.3
+        ]
+      },
+      "methods": [
+        "IP-AD"
+      ]
+    },
+    {
+      "id": "population-24",
+      "group": "population",
+      "population": 24,
+      "overrides": {},
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "population-48",
+      "group": "population",
+      "population": 48,
+      "overrides": {},
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "population-72",
+      "group": "population",
+      "population": 72,
+      "overrides": {},
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    },
+    {
+      "id": "population-96",
+      "group": "population",
+      "population": 96,
+      "overrides": {},
+      "methods": [
+        "IP-AD",
+        "IP-F20-H"
+      ]
+    }
+  ],
+  "heuristic_baseline": "hold-200/IP-AD",
+  "population_generation": "make_scene(original seed,96, original configuration); prefixes24/48/72/96 retain all shared priors and observers; truth stream IDs5101..5108",
+  "J2": {
+    "constant": 0.00108262668,
+    "mu": 398600441800000.0,
+    "earth_radius_m": 6378137.0,
+    "pole": "fixed ECI z",
+    "truth_filter_modes": [
+      "two_body/two_body",
+      "J2/two_body",
+      "J2/J2"
+    ],
+    "schedule": "hold-200 frozen; reject entire infeasible actions without repair; same J2 execution mask for both filters",
+    "deterministic_checkpoints_s": [
+      200,
+      900
+    ]
+  },
+  "timing": "wall and process CPU around optimize only; cold dwell cache; preprocessing and EKF excluded",
+  "statistical_unit": "equal eight-scene average per search seed; mean and sample SD across5 seed averages; retain40 paired scene-seed values",
+  "failure_policy": "all targets and poor outcomes retained; incomplete jobs excluded from complete summary; no parameter selection from results",
+  "source_hashes": {
+    "src/space_cluster_scheduling/paths.py": "78994e76cd160b7d73edefa99100f9f0d6450dbcfa7b3d91de72f6999ee0490b",
+    "src/space_cluster_scheduling/model.py": "61bc0fea9ce5c1cba315f641e934915b969d527748e1b429ef4bf007dde19f1c",
+    "src/space_cluster_scheduling/smoke.py": "d090af770807426e6ab0298a5849cd318192c137cd5ee0a41ff88a66f49c702d",
+    "src/space_cluster_scheduling/scenes.py": "492903046f92beb46e637ed32fd8c78b999dca5f2076911290825db79d6a2df1",
+    "src/space_cluster_scheduling/__init__.py": "c2545d85d5c26adfd145b61af515e3f4590cae98d11eb5834a30b62a4b9d0ab7",
+    "src/space_cluster_scheduling/run_sweep.py": "090b5cc79dae73491f01e7ae98fb3ac54652624bdc853a64e20fe68143092631",
+    "src/space_cluster_scheduling/run_controls.py": "5b5df650eda80a9e404174ce49d8dcdb236bae611359f52a7224e9a46f329f10",
+    "src/space_cluster_scheduling/audit_accuracy.py": "2d03be7484e58eed9e471e581c3544995203ff60845952a97886d02e942db01f",
+    "src/space_cluster_scheduling/__main__.py": "008d2ba00a295790d2ab2254f1481e2bf9e75799633e166794ea1c51402e6c88",
+    "src/space_cluster_scheduling/evaluation.py": "2eea225a403a1dfd7a50ac0577e377cf87831919d965ec0152358d860fc61c64",
+    "src/space_cluster_scheduling/rescore.py": "ba2ed4e0fb268dac339eb67207be0b7daf800b1861e909df24db4ae5d5604c38",
+    "src/space_cluster_scheduling/validate.py": "40e1e378fc601e6a5bbb2625b8088bad4ca7a8cb059f2e0f10920f92d565b61f",
+    "src/space_cluster_scheduling/nonlinear_math.py": "d58bab458b88a6f74ee83df667814e6d5289e49f8205a03884798f97236df0c5",
+    "src/space_cluster_scheduling/run_accuracy.py": "3e8a768c74203390e56f3c497b2d3a1c6c86bcac2008c49421c03b9f23f25202",
+    "src/space_cluster_scheduling/check_formulas.py": "5f59b5fa628e860f4cac3fb821b8fe6767f486166c881d7d71ef4c5d63c83af5",
+    "src/space_cluster_scheduling/scheduler.py": "a1d0535aa537c0f97e7336f7b1f1c576062d57a9e75b1d02d5a569dff5d85b0c"
+  },
+  "fingerprint": "897fc155a0a40c679acec45d26910c621b77295215516c8d012c1cbfc0a2d975"
+}

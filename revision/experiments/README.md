@@ -1,262 +1,70 @@
-# Tracking-Accuracy-Constrained Scheduling
+# Frozen October revision experiments
 
-Research code and synthetic scene inputs for **Tracking-Accuracy-Constrained Scheduling for Active–Passive Observation Constellations of Noncooperative Space-Object Clusters**.
+This directory contains a separate, frozen copy of the numerical source used for the October revision. The main protocol fingerprint is `897fc155a0a40c679acec45d26910c621b77295215516c8d012c1cbfc0a2d975`. The warning-variant validation fingerprint is `a7c65e81362b54812bc5411f24e5c875691ab46993f07bc152a678358e85590d`.
 
+Run the commands below from the **repository root**, using Python 3.12 and the root `requirements-plot.txt`. The original `requirements.txt` in this directory is retained as an environment record; the root plotting requirements also pin the transitive `six` dependency. No local `vendor/` runtime is required.
 
-
-This repository contains the scheduling and estimation implementation, experiment configurations, eight synthetic orbital scenes, and selected diagnostic data. The October revision experiments, plotting/report scripts, frozen protocols, compact historical summaries, and a baseline replay archive are included under `revision/experiments/`. The manuscript, LaTeX template, publication proofs, editor correspondence, local dependency runtimes, and full raw revision-result caches are excluded. Fresh experiment outputs are generated locally by the commands below.
-
-## Research scope
-
-The implementation schedules joint passive optical angle measurements and active laser ranging for noncooperative space-object clusters. It combines:
-
-- Tracking-accuracy constraints based on position–velocity covariance and a 200 s measurement-free hold interval.
-- Adaptive observation durations and an optional initialization-priority rule.
-- Time-dependent common-field acquisition and serial laser service.
-- Independent target posteriors and covariance propagation between observations.
-- Hierarchical self-adaptive differential evolution (H-SADE) for scheduling search.
-- Nonlinear truth propagation and extended Kalman filter (EKF) evaluation using paired random realizations across methods.
-
-The method uses numerical optimization and filtering; it has no neural-network training stage or pretrained weights.
-
-Planning covariance feasibility and actual estimation-error compliance are evaluated separately. The experiments investigate conditional performance improvements; they do not establish universal superiority or flight readiness.
-
-## Repository structure
-
-```text
-Tracking-Accuracy-Constrained_Scheduling/
-├── README.md
-├── config/
-│   ├── evaluation.json           # Actual-error acceptance thresholds
-│   └── experiments.json          # Planning and measurement-noise conditions
-├── data/
-│   ├── scene.schema.json         # Scene data schema
-│   ├── scenes/
-│   │   ├── 2101.json ... 2108.json
-│   │   └── manifest.json         # Scene counts and numerical-content hashes
-│   └── diagnostics/
-│       ├── mechanism.json
-│       ├── mechanism-curves.json
-│       └── scene-description.json
-├── requirements.txt             # Numerical dependency pin
-├── requirements-plot.txt        # Plotting dependency pins
-├── tools/prepare_revision.py    # Verify/extract frozen revision inputs
-├── docs/CHANGELOG.md
-├── revision/experiments/        # Frozen revision code, inputs and reference evidence
-└── src/
-    └── space_cluster_scheduling/
-        ├── __init__.py
-        ├── __main__.py           # Main command-line interface
-        ├── paths.py              # Repository-relative data/output locations
-        ├── scenes.py             # Scene loading and validation
-        ├── model.py              # Orbital geometry and covariance model
-        ├── scheduler.py          # Scheduling, optimization, and plan replay
-        ├── nonlinear_math.py     # Nonlinear dynamics and measurements
-        ├── evaluation.py         # Actual-error acceptance calculations
-        ├── run_accuracy.py       # Three-method scheduling and EKF experiments
-        ├── run_sweep.py          # Multiple experiment conditions
-        ├── run_controls.py       # Matched controls and search-seed experiments
-        ├── validate.py           # Scene integrity checks
-        ├── check_formulas.py     # Local numerical consistency checks
-        ├── audit_accuracy.py     # Saved-plan and result audits
-        ├── rescore.py            # Reclassify saved estimation errors
-        └── smoke.py              # Replay against existing P1 results
-```
-
-## Environment setup
-
-Use Python 3.12 and NumPy. The commands below target Linux/Bash; `run_controls.py` reads `/proc/cpuinfo` to record processor information. The dependencies are pinned for consistency with the manuscript preparation environment. Expose the source directory through `PYTHONPATH`; the repository is run from source rather than installed as a Python package.
-
-Run these commands from the repository root:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-# For revision plots and reports, also install:
-python -m pip install -r requirements-plot.txt
-export PYTHONPATH="$PWD/src${PYTHONPATH:+:$PYTHONPATH}"
-export OPENBLAS_NUM_THREADS=1
-export OMP_NUM_THREADS=1
-export MKL_NUM_THREADS=1
-```
-
-Limiting numerical-library threads avoids CPU oversubscription when using multiple experiment workers. Choose the number of workers according to available memory and CPU resources.
-
-## Input and numerical checks
-
-Display available commands and validate the supplied scenes:
-
-```bash
-python -m space_cluster_scheduling --help
-python -m space_cluster_scheduling validate-scenes
-```
-
-Scene validation checks the supported data fields, target and observer counts, and canonical numerical-content hashes against the manifest. The supplied scenes contain 138 targets in total.
-
-Run local formula checks:
-
-```bash
-python -m space_cluster_scheduling check-formulas
-```
-
-This writes `results/formula-checks.json` and checks selected dynamics and measurement Jacobians, covariance updates, and hold propagation. These are numerical consistency checks, not external physical validation.
-
-## Main experiments
-
-### Run the reference condition
-
-```bash
-python -m space_cluster_scheduling simulate --condition P1 --workers 1
-```
-
-This runs all eight scenes with three methods, search seed 3101, 48 complete-plan evaluations per method, and 200 Monte Carlo realizations per target. It is a full experiment, not a short smoke test.
-
-The output method identifiers map to the manuscript labels as follows:
-
-| Output identifier | Manuscript label | Observation duration | Initialization priority | Hold screening |
-|---|---|---|---|---|
-| `Fixed20` | F20 | Fixed 20 s | No | No hard rejection |
-| `Hold` | AD | Adaptive | No | Yes |
-| `Deadline` | IP-AD | Adaptive | Yes | Yes |
-
-By default, outputs are written to `results/experiments/P1/`. A different directory can be selected with `--output`:
-
-```bash
-python -m space_cluster_scheduling simulate --condition P1 --workers 2 --output results/custom/P1
-```
-
-### Audit and rescore completed results
-
-After the reference simulation has completed:
-
-```bash
-python -m space_cluster_scheduling audit --condition P1
-python -m space_cluster_scheduling rescore --condition P1
-```
-
-For a custom result directory, pass the same `--output` path to both commands. The audit replays plans, verifies resource constraints and applicable hold constraints, checks saved hashes and paired truth, and reaggregates accuracy metrics.
-
-Rescoring updates saved acceptance rates and produces `threshold-summary.csv`. It does not optimize new schedules or rerun the EKF. Changing planning thresholds requires new simulations; changing actual-error acceptance thresholds can be handled through rescoring.
-
-### Run multiple conditions
-
-Run a selected subset:
-
-```bash
-python -m space_cluster_scheduling.run_sweep --conditions P1 P2 M1 M1P4 --workers 2
-```
-
-Run every configured condition:
-
-```bash
-python -m space_cluster_scheduling.run_sweep --workers 2
-```
-
-The configuration contains 20 conditions: four planning levels at the reference measurement noise, plus a full four-by-four measurement-noise/planning-level grid. The sweep automatically audits completed conditions.
-
-## Matched controls and repeated search seeds
-
-Run the control experiments:
-
-```bash
-python -m space_cluster_scheduling.run_controls --workers 2
-```
-
-The protocol includes:
-
-- Six matched methods: F20, IP-F20, F20-H, IP-F20-H, AD, and IP-AD.
-- Five paired search seeds: 3101–3105.
-- Eight scenes under the P1 and P4M1 conditions, with 48 plan evaluations per method.
-- Fixed-duration scans of 10, 20, 30, and 40 s with initialization priority and hold screening, under P1 with seed 3101.
-- Search budgets of 24, 48, and 96 evaluations on scenes 2101 and 2106 under P1.
-- Recorded optimization wall time and process CPU time, separate from preprocessing and estimation evaluation.
-
-`IP` enables initialization priority. `H` adds hold screening to fixed-duration scheduling without shortening or extending the prescribed visit. F20 and IP-F20 do not reject visits solely for failing the hold check; adaptive methods apply hold screening.
-
-The controls label `P4M1` corresponds to `M1P4` in `config/experiments.json`: planning thresholds of 2000 m and 100 m/s, with measurement standard deviations of 50 microradians and 30 m.
-
-For a smaller control run:
-
-```bash
-python -m space_cluster_scheduling.run_controls --smoke --workers 2
-```
-
-This still performs six optimizations for scene 2101 and 200 Monte Carlo realizations per target. Outputs go to the fixed directory `results/controls/`. Keep the same worker setting when continuing a control run: the saved protocol fingerprint includes the worker count and runtime metadata. For a changed protocol, use a separate checkout or preserve the existing results elsewhere before starting again.
-
-## Experiment settings and interpretation
-
-| Setting | Value |
-|---|---|
-| Synthetic scenes | 2101–2108 |
-| Targets per scene | 12, 18, or 24 |
-| Total targets across scenes | 138 |
-| Planning horizon | 0–900 s |
-| Initialization deadline | 120 s |
-| Measurement and evaluation time step | 0.2 s |
-| Measurement-free hold interval | 200 s |
-| Actual-error evaluation interval | 120–900 s |
-| Monte Carlo realizations | 200 per target and plan |
-| Baseline actual-error acceptance | Position ≤ 500 m and velocity ≤ 25 m/s |
-
-`config/evaluation.json` defines four actual-error threshold pairs: 500 m/25 m/s, 1000 m/50 m/s, 1500 m/75 m/s, and 2000 m/100 m/s. Full-interval compliance requires both errors to remain within their thresholds at every evaluation grid point. All targets contribute to the evaluation, including targets without scheduled observations.
-
-Repeated search seeds measure scheduling-search variation. Monte Carlo realizations measure estimation variation for a fixed plan; these are different sources of variability. Repeated seeds and parameter settings do not constitute additional independent orbital scenes.
-
-## Generated outputs and replay
-
-Main experiments generate a directory for each condition containing:
-
-```text
-results/experiments/<condition>/
-├── protocol.json
-├── plans/
-├── chains/
-├── scene-summaries/
-├── scene-results.json
-└── summary.json
-```
-
-Auditing adds `final-audit.json`; rescoring adds `threshold-summary.csv`. Control experiments generate their own protocol, plans, cached target results, per-run records, and `all-runs.json` under `results/controls/`.
-
-Existing results are reused subject to the checks implemented by each runner. Use a fresh output directory or separate checkout after changing code, inputs, or experimental settings. Full simulations may require substantial computation; no runtime guarantee is provided.
-
-The separate command `python -m space_cluster_scheduling smoke` requires completed reference plans and chains in `results/experiments/P1/`, which are not bundled here. It also requires a `docs/` output directory. After generating P1 results, it can be run with:
-
-```bash
-mkdir -p docs
-python -m space_cluster_scheduling smoke
-```
-
-This compares recomputed target-level estimation metrics against existing results and writes `docs/smoke-results.json`. The command uses the fixed P1 location; its input path is not redirected by `--output`.
-
-## October revision experiments (added 2026-10-28)
-
-The frozen revision copy adds hold intervals of 100/200/300/500 s, one-factor heuristic sensitivity, nested populations of 24/48/72/96 targets, fixed-calendar J2 replay, and a selected warning-0.7 variant tested against matched controls on new optimization seeds. Original default settings remain warning 0.8, multiplier 1.5, weights (0.5, 0.3, 0.2), and hold 200 s. Root `model.py` and `scheduler.py` now expose the multiplier and weights as configuration parameters; the numerical evaluator is unchanged.
-
-Start with the integrity/preparation commands:
+## Prepare and check
 
 ```bash
 python tools/prepare_revision.py --check-only
 python tools/prepare_revision.py
+python revision/experiments/run_revision.py --regression
+python revision/experiments/j2_revision.py --check
+python revision/experiments/check_semantics.py
+python revision/experiments/check_j2_replay.py
+python revision/experiments/check_figure3.py
 ```
 
-Then follow the complete ordered commands in [the revision README](revision/experiments/README.md). The main matrix has 960 scheduling runs and 160 J2 replays; the warning-variant validation adds 120 runs. The 1339-file baseline archive is bundled as a ZIP and verified against its existing hash manifest before extraction. Compact historical summaries and PASS records are clearly separated from fresh outputs. They do not certify a fresh reproduction of this release.
+The first command verifies protocol fingerprints, all 16 frozen source hashes, the three validation-code hashes, the selection summary, and all 1339 baseline archive entries. The second extracts `reference-archive.zip` and creates output directories. Existing differing baseline files or selection summaries cause an error; the helper does not overwrite them. `--check-only` does not run scientific experiments or create outputs.
 
-**Run the new-seed validation checker before the final main summary/plot command.** It verifies the exact historical selection-data hash; regenerating the main summary first changes timing-dependent fields. The preparation helper refuses to overwrite a differing existing summary. See the revision README for the ordering and resumption details.
+The regression command performs four full 48-evaluation searches and representative 200-realization target replays, comparing with archived plans and metrics. It is a meaningful regression, not an instant smoke test. The remaining checks cover J2 derivatives/propagation, duration/weight interfaces and unperturbed execution masks, equivalence of the two-body replay adapter, and the original numerical duration diagnostic. Run them sequentially.
 
-For a new checkout, `validate-scenes` and `check-formulas` are the initial numerical checks. The optional frozen regression is more expensive: four full searches plus representative nonlinear replays. The old `smoke` command above still requires prior P1 outputs.
+## Full reproduction: command order matters
 
-## Modeling limitations
+```bash
+# 960 unique schedules; some reference evaluations are imported after regression.
+python revision/experiments/run_revision.py --workers 4
+# Reproduce all 80 default plans and remeasure planning times.
+python revision/experiments/finalize_checks.py --baseline
+# 160 fixed-calendar perturbed-truth replays.
+python revision/experiments/j2_revision.py --workers 4
+python revision/experiments/finalize_checks.py
+python revision/experiments/audit_population_admission.py
 
-All orbital scenes are synthetic. The model assumes known observer ephemerides, target association, and availability of scheduled measurements. It does not model illumination, reflectance, laser-return link budgets, acquisition failure, or observer ephemeris errors. The original main/control experiments use two-body truth and estimation with the specified process noise. The separate revision experiment includes fixed-calendar J2 truth with two-body and matched J2 estimators; atmospheric drag is not included.
+# 120 runs on search seeds 3106–3110; frozen warning-0.7 candidate and two controls.
+python revision/experiments/parameter-update/run_validation.py
+python revision/experiments/parameter-update/check_and_summarize.py
 
-Feasibility and compliance are checked on a discrete time grid. Covariance feasibility does not guarantee actual-error compliance, and numerical consistency checks do not establish continuous-time or flight performance.
+# Generate main summary, plots, and TeX inserts LAST.
+python revision/experiments/summarize_revision.py
+```
 
+The validation checker deliberately requires `results/summary.json` to have the exact hash of the historical data used to select warning 0.7. Preparation initializes this file from immutable `reference-results/summary.json`; it is a **selection record**, not a summary of a new run. Run the validation checker **before** the final main summary command, which regenerates timing-dependent fields and changes that file's hash. To audit validation again after regenerating the main summary, use a fresh work copy with the frozen selection record and copies of the generated validation outputs. Do not remove the hash check or silently replace a newly generated summary.
 
+`resume_matrix.py` can resume the main matrix after an interruption, skipping already saved jobs before geometry setup. It uses four workers and the same frozen runner. Check inputs with `tools/prepare_revision.py --check-only` first. Do not run separate groups concurrently against the same output directory. The full protocol needs substantial computation and storage; no portable runtime guarantee is available. Planning CPU/wall times are recorded per run and vary by hardware. Monte Carlo evaluation times include valid cache reuse and are not standalone estimator benchmarks.
 
-## Citation and license
+## Included inputs and historical evidence
 
-The associated manuscript title is given above. Add verified publication details and the article DOI when available; no DOI is asserted here.
+- `src/`, `config/`, `data/`: frozen numerical source, original eight scenes, diagnostics, and 32 nested-population inputs (families 5101–5108, sizes 24/48/72/96).
+- `protocol.json`: hold/heuristic/population/J2 settings, five paired search seeds 3101–3105, budget 48, and 200 realizations per target.
+- `parameter-update/`: frozen candidate, validation protocol, runner, and audit/report generator. Warning 0.8 remains the original reference; warning 0.7 is a separate candidate.
+- `reference-archive.zip`: 80 exact baseline plans, 80 run records, and 1179 referenced chains. Their 1339 SHA-256 values are in `provenance/reference-archive-hashes.json`. The runner uses the extracted `reference-archive/` by default; `REVISION_REFERENCE_ARCHIVE` can point to an identical expanded copy.
+- `reference-results/`: compact **historical** summaries, paired differences, seed means, and admission audit. These are supplied for comparison; the large full raw output caches are excluded.
+- `provenance/archived-checks/`: historical PASS records, separated from active `checks/`. They are never installed as current-run PASS records. `provenance/runtime.json` describes the prior execution environment with local machine paths removed.
 
-No license file is included in this directory. No open-source license is asserted by this README; contact the repository owner regarding reuse permissions.
+One-time preparation scripts that regenerated the frozen protocol and local wait/continuation helpers are excluded. The plotting runner and its required mechanism builder are included. Root source and frozen source both expose the same parameter interfaces; future root edits do not automatically change the frozen experiment copy.
+
+## Outputs
+
+Fresh runs write `results/plans`, `results/runs`, `results/chains`, `results/j2`, and `parameter-update/results`. Successful numerical and completeness checks write active `checks/` and `parameter-update/checks.json`. Full aggregation requires all 960 schedules, 160 J2 replays, and all 80 default-plan reproductions; partial runs cannot produce a complete summary. The validation checker separately requires all 120 runs.
+
+Plotting/report scripts write generated TeX inserts and figures into `revision/paper/`, and an analysis report into `revision/audit/`. These generated fragments require the manuscript's macros to compile; they are not a standalone manuscript or a separate supplementary-material submission. No paper source or editor correspondence is included in the repository.
+
+## Interpretation
+
+Each scene RMSE pools squared errors across targets, realizations, and evaluation times. Eight scene RMSEs are averaged equally for each search seed; mean and sample standard deviation use the five seed means. Compliance counts target–realization pairs meeting both error limits at every evaluation grid point, retaining all targets, including unobserved ones. Search-seed standard deviations are not confidence intervals, and 200 realizations are not 200 independent orbital scenes.
+
+The main matrix contains 320 hold schedules, 360 heuristic schedules (40 overlap hold-200/IP-AD), and 320 population schedules, hence 960 unique schedules. J2 replays keep the original timestamps, cancel whole infeasible visits without replacement, and use the same executed calendar for both estimator modes. They examine model mismatch and matched J2 estimation; they do not create a J2-aware optimal schedule or model drag, observer-state uncertainty, or realized laser returns. Copied two-body `hold_risk` labels are not new J2 hold guarantees.
+
+The 96-target study is an overload boundary with all targets retained in the denominator, not a proven constellation capacity. Validation seeds 3106–3110 reuse known geometries and Monte Carlo inputs; they test optimization-seed variation rather than generalization to unseen scenes. Covariance feasibility never implies guaranteed actual-error compliance.
