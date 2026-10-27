@@ -1,0 +1,1 @@
+{"status": "PASS", "scheduling_runs": 960, "j2_replays": 160, "unique_two_body_chains": 13230, "common_truth_pairs": 906, "nested_populations": true, "j2_common_masks": true, "all_targets_retained": true, "unperturbed_execution_masks_exact": 80, "full_default_plan_reproductions": 80}

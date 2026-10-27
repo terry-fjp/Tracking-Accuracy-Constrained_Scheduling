@@ -1,0 +1,194 @@
+[
+  {
+    "population": 24,
+    "method": "IP-AD",
+    "admitted": {
+      "mean": 22.85,
+      "sample_sd": 0.270993542358485
+    },
+    "excluded_by_admission": {
+      "mean": 1.15,
+      "sample_sd": 0.270993542358485
+    },
+    "admitted_without_observation": {
+      "mean": 1.175,
+      "sample_sd": 0.11180339887498948
+    },
+    "observed": {
+      "mean": 21.675,
+      "sample_sd": 0.28777161083053343
+    },
+    "unobserved": {
+      "mean": 2.325,
+      "sample_sd": 0.28777161083053343
+    }
+  },
+  {
+    "population": 24,
+    "method": "IP-F20-H",
+    "admitted": {
+      "mean": 18.925,
+      "sample_sd": 1.859519427163911
+    },
+    "excluded_by_admission": {
+      "mean": 5.075,
+      "sample_sd": 1.859519427163911
+    },
+    "admitted_without_observation": {
+      "mean": 5.75,
+      "sample_sd": 1.0789172813520043
+    },
+    "observed": {
+      "mean": 13.175,
+      "sample_sd": 1.2234684303242156
+    },
+    "unobserved": {
+      "mean": 10.825,
+      "sample_sd": 1.2234684303242156
+    }
+  },
+  {
+    "population": 48,
+    "method": "IP-AD",
+    "admitted": {
+      "mean": 40.675,
+      "sample_sd": 1.5602483776629925
+    },
+    "excluded_by_admission": {
+      "mean": 7.325,
+      "sample_sd": 1.5602483776629925
+    },
+    "admitted_without_observation": {
+      "mean": 11.225,
+      "sample_sd": 1.0875718367078102
+    },
+    "observed": {
+      "mean": 29.45,
+      "sample_sd": 1.1943879185591255
+    },
+    "unobserved": {
+      "mean": 18.55,
+      "sample_sd": 1.1943879185591255
+    }
+  },
+  {
+    "population": 48,
+    "method": "IP-F20-H",
+    "admitted": {
+      "mean": 41.3,
+      "sample_sd": 1.5900078616157847
+    },
+    "excluded_by_admission": {
+      "mean": 6.7,
+      "sample_sd": 1.5900078616157847
+    },
+    "admitted_without_observation": {
+      "mean": 26.325,
+      "sample_sd": 1.3653067420913148
+    },
+    "observed": {
+      "mean": 14.975,
+      "sample_sd": 0.3468609231377902
+    },
+    "unobserved": {
+      "mean": 33.025,
+      "sample_sd": 0.3468609231377902
+    }
+  },
+  {
+    "population": 72,
+    "method": "IP-AD",
+    "admitted": {
+      "mean": 62.825,
+      "sample_sd": 2.4488517717493643
+    },
+    "excluded_by_admission": {
+      "mean": 9.175,
+      "sample_sd": 2.4488517717493643
+    },
+    "admitted_without_observation": {
+      "mean": 30.0,
+      "sample_sd": 2.5341418665891617
+    },
+    "observed": {
+      "mean": 32.825,
+      "sample_sd": 0.8776744840770979
+    },
+    "unobserved": {
+      "mean": 39.175,
+      "sample_sd": 0.8776744840770979
+    }
+  },
+  {
+    "population": 72,
+    "method": "IP-F20-H",
+    "admitted": {
+      "mean": 63.85,
+      "sample_sd": 2.569958657255015
+    },
+    "excluded_by_admission": {
+      "mean": 8.15,
+      "sample_sd": 2.569958657255015
+    },
+    "admitted_without_observation": {
+      "mean": 47.875,
+      "sample_sd": 2.4717149916606487
+    },
+    "observed": {
+      "mean": 15.975,
+      "sample_sd": 0.270993542358485
+    },
+    "unobserved": {
+      "mean": 56.025,
+      "sample_sd": 0.270993542358485
+    }
+  },
+  {
+    "population": 96,
+    "method": "IP-AD",
+    "admitted": {
+      "mean": 87.925,
+      "sample_sd": 3.101914731258743
+    },
+    "excluded_by_admission": {
+      "mean": 8.075,
+      "sample_sd": 3.101914731258743
+    },
+    "admitted_without_observation": {
+      "mean": 52.5,
+      "sample_sd": 2.7641680484369977
+    },
+    "observed": {
+      "mean": 35.425,
+      "sample_sd": 1.1201283408609926
+    },
+    "unobserved": {
+      "mean": 60.575,
+      "sample_sd": 1.1201283408609926
+    }
+  },
+  {
+    "population": 96,
+    "method": "IP-F20-H",
+    "admitted": {
+      "mean": 86.9,
+      "sample_sd": 1.6639561292293736
+    },
+    "excluded_by_admission": {
+      "mean": 9.1,
+      "sample_sd": 1.6639561292293736
+    },
+    "admitted_without_observation": {
+      "mean": 70.775,
+      "sample_sd": 1.6521765946774576
+    },
+    "observed": {
+      "mean": 16.125,
+      "sample_sd": 0.08838834764831845
+    },
+    "unobserved": {
+      "mean": 79.875,
+      "sample_sd": 0.08838834764831845
+    }
+  }
+]

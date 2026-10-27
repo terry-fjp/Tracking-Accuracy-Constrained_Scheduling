@@ -1,0 +1,42 @@
+{
+  "version": "warning-update-validation-v1",
+  "created_utc": "2026-10-18T13:11:17.211308+00:00",
+  "scenes": [
+    2101,
+    2102,
+    2103,
+    2104,
+    2105,
+    2106,
+    2107,
+    2108
+  ],
+  "search_seeds": [
+    3106,
+    3107,
+    3108,
+    3109,
+    3110
+  ],
+  "variants": [
+    "IP-AD",
+    "IP-F20-H",
+    "IP-AD-W07"
+  ],
+  "repetitions": 200,
+  "budget": 48,
+  "workers": 4,
+  "blas_threads": 1,
+  "parent_physical_protocol": "897fc155a0a40c679acec45d26910c621b77295215516c8d012c1cbfc0a2d975",
+  "selection_data_sha256": "0cbfd4b9d5fa7e6b52a9c6c4bc04e28e74cae414047dc8bcb5cd70c35ecfcf18",
+  "selected_warning": 0.7,
+  "selection_basis": "Original sensitivity study: lower position/velocity RMSE and greater compliance than warning0.8 at comparable laser use. Choose only warning; no joint retuning.",
+  "scope": "New optimization seeds on the same eight physical scenes and shared Monte Carlo inputs. This is not validation on new geometry or independent truth draws. No further 96-target runs; previous overload evidence remains archived and in Appendix C/replies.",
+  "code_hashes": {
+    "run_validation.py": "de96e64ce736d6650623a928ce4c2fd91974fcbd5ab19d9a1ff53ff99647c1af",
+    "revised_algorithm.py": "00656a9a1708c7b98a8a196fe7dbdf3f5d2373f2b5b240dfe26deba0b6ebebbe",
+    "algorithm-config.json": "2604b4f7929b9451b3c6312ea3ee605fd5da6de7962d7d0c4a55a5a9258f5635"
+  },
+  "decision_rule": "Report all120 runs and both controls, even if the selected variant is worse. Do not change candidate based on validation outcomes.",
+  "fingerprint": "a7c65e81362b54812bc5411f24e5c875691ab46993f07bc152a678358e85590d"
+}

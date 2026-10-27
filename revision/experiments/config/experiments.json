@@ -1,0 +1,330 @@
+{
+  "reference_condition": "P1",
+  "hold_s": 200,
+  "warning": 0.8,
+  "measurement_period_s": 0.2,
+  "repetitions": 200,
+  "conditions": [
+    {
+      "id": "P1",
+      "family": "planning",
+      "planning_position_m": 500,
+      "planning_velocity_m_s": 25,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 50,
+      "overrides": {
+        "epsilon_r": 500.0,
+        "epsilon_v": 25.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 50.0
+      },
+      "planning_level": "P1",
+      "measurement_level": "reference100urad50m"
+    },
+    {
+      "id": "P2",
+      "family": "planning",
+      "planning_position_m": 1000,
+      "planning_velocity_m_s": 50,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 50,
+      "overrides": {
+        "epsilon_r": 1000.0,
+        "epsilon_v": 50.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 50.0
+      },
+      "planning_level": "P2",
+      "measurement_level": "reference100urad50m"
+    },
+    {
+      "id": "P3",
+      "family": "planning",
+      "planning_position_m": 1500,
+      "planning_velocity_m_s": 75,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 50,
+      "overrides": {
+        "epsilon_r": 1500.0,
+        "epsilon_v": 75.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 50.0
+      },
+      "planning_level": "P3",
+      "measurement_level": "reference100urad50m"
+    },
+    {
+      "id": "P4",
+      "family": "planning",
+      "planning_position_m": 2000,
+      "planning_velocity_m_s": 100,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 50,
+      "overrides": {
+        "epsilon_r": 2000.0,
+        "epsilon_v": 100.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 50.0
+      },
+      "planning_level": "P4",
+      "measurement_level": "reference100urad50m"
+    },
+    {
+      "id": "M1",
+      "family": "measurement",
+      "planning_position_m": 500,
+      "planning_velocity_m_s": 25,
+      "sigma_angle_urad": 50,
+      "sigma_range_m": 30,
+      "overrides": {
+        "epsilon_r": 500.0,
+        "epsilon_v": 25.0,
+        "sigma_angle": 5e-05,
+        "sigma_range": 30.0
+      },
+      "planning_level": "P1",
+      "measurement_level": "M1"
+    },
+    {
+      "id": "M2",
+      "family": "measurement",
+      "planning_position_m": 500,
+      "planning_velocity_m_s": 25,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 60,
+      "overrides": {
+        "epsilon_r": 500.0,
+        "epsilon_v": 25.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 60.0
+      },
+      "planning_level": "P1",
+      "measurement_level": "M2"
+    },
+    {
+      "id": "M3",
+      "family": "measurement",
+      "planning_position_m": 500,
+      "planning_velocity_m_s": 25,
+      "sigma_angle_urad": 150,
+      "sigma_range_m": 90,
+      "overrides": {
+        "epsilon_r": 500.0,
+        "epsilon_v": 25.0,
+        "sigma_angle": 0.00015,
+        "sigma_range": 90.0
+      },
+      "planning_level": "P1",
+      "measurement_level": "M3"
+    },
+    {
+      "id": "M4",
+      "family": "measurement",
+      "planning_position_m": 500,
+      "planning_velocity_m_s": 25,
+      "sigma_angle_urad": 200,
+      "sigma_range_m": 120,
+      "overrides": {
+        "epsilon_r": 500.0,
+        "epsilon_v": 25.0,
+        "sigma_angle": 0.0002,
+        "sigma_range": 120.0
+      },
+      "planning_level": "P1",
+      "measurement_level": "M4"
+    },
+    {
+      "id": "M1P2",
+      "family": "measurement",
+      "planning_position_m": 1000,
+      "planning_velocity_m_s": 50,
+      "sigma_angle_urad": 50,
+      "sigma_range_m": 30,
+      "overrides": {
+        "epsilon_r": 1000.0,
+        "epsilon_v": 50.0,
+        "sigma_angle": 5e-05,
+        "sigma_range": 30.0
+      },
+      "planning_level": "P2",
+      "measurement_level": "M1"
+    },
+    {
+      "id": "M1P3",
+      "family": "measurement",
+      "planning_position_m": 1500,
+      "planning_velocity_m_s": 75,
+      "sigma_angle_urad": 50,
+      "sigma_range_m": 30,
+      "overrides": {
+        "epsilon_r": 1500.0,
+        "epsilon_v": 75.0,
+        "sigma_angle": 5e-05,
+        "sigma_range": 30.0
+      },
+      "planning_level": "P3",
+      "measurement_level": "M1"
+    },
+    {
+      "id": "M1P4",
+      "family": "measurement",
+      "planning_position_m": 2000,
+      "planning_velocity_m_s": 100,
+      "sigma_angle_urad": 50,
+      "sigma_range_m": 30,
+      "overrides": {
+        "epsilon_r": 2000.0,
+        "epsilon_v": 100.0,
+        "sigma_angle": 5e-05,
+        "sigma_range": 30.0
+      },
+      "planning_level": "P4",
+      "measurement_level": "M1"
+    },
+    {
+      "id": "M2P2",
+      "family": "measurement",
+      "planning_position_m": 1000,
+      "planning_velocity_m_s": 50,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 60,
+      "overrides": {
+        "epsilon_r": 1000.0,
+        "epsilon_v": 50.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 60.0
+      },
+      "planning_level": "P2",
+      "measurement_level": "M2"
+    },
+    {
+      "id": "M2P3",
+      "family": "measurement",
+      "planning_position_m": 1500,
+      "planning_velocity_m_s": 75,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 60,
+      "overrides": {
+        "epsilon_r": 1500.0,
+        "epsilon_v": 75.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 60.0
+      },
+      "planning_level": "P3",
+      "measurement_level": "M2"
+    },
+    {
+      "id": "M2P4",
+      "family": "measurement",
+      "planning_position_m": 2000,
+      "planning_velocity_m_s": 100,
+      "sigma_angle_urad": 100,
+      "sigma_range_m": 60,
+      "overrides": {
+        "epsilon_r": 2000.0,
+        "epsilon_v": 100.0,
+        "sigma_angle": 0.0001,
+        "sigma_range": 60.0
+      },
+      "planning_level": "P4",
+      "measurement_level": "M2"
+    },
+    {
+      "id": "M3P2",
+      "family": "measurement",
+      "planning_position_m": 1000,
+      "planning_velocity_m_s": 50,
+      "sigma_angle_urad": 150,
+      "sigma_range_m": 90,
+      "overrides": {
+        "epsilon_r": 1000.0,
+        "epsilon_v": 50.0,
+        "sigma_angle": 0.00015,
+        "sigma_range": 90.0
+      },
+      "planning_level": "P2",
+      "measurement_level": "M3"
+    },
+    {
+      "id": "M3P3",
+      "family": "measurement",
+      "planning_position_m": 1500,
+      "planning_velocity_m_s": 75,
+      "sigma_angle_urad": 150,
+      "sigma_range_m": 90,
+      "overrides": {
+        "epsilon_r": 1500.0,
+        "epsilon_v": 75.0,
+        "sigma_angle": 0.00015,
+        "sigma_range": 90.0
+      },
+      "planning_level": "P3",
+      "measurement_level": "M3"
+    },
+    {
+      "id": "M3P4",
+      "family": "measurement",
+      "planning_position_m": 2000,
+      "planning_velocity_m_s": 100,
+      "sigma_angle_urad": 150,
+      "sigma_range_m": 90,
+      "overrides": {
+        "epsilon_r": 2000.0,
+        "epsilon_v": 100.0,
+        "sigma_angle": 0.00015,
+        "sigma_range": 90.0
+      },
+      "planning_level": "P4",
+      "measurement_level": "M3"
+    },
+    {
+      "id": "M4P2",
+      "family": "measurement",
+      "planning_position_m": 1000,
+      "planning_velocity_m_s": 50,
+      "sigma_angle_urad": 200,
+      "sigma_range_m": 120,
+      "overrides": {
+        "epsilon_r": 1000.0,
+        "epsilon_v": 50.0,
+        "sigma_angle": 0.0002,
+        "sigma_range": 120.0
+      },
+      "planning_level": "P2",
+      "measurement_level": "M4"
+    },
+    {
+      "id": "M4P3",
+      "family": "measurement",
+      "planning_position_m": 1500,
+      "planning_velocity_m_s": 75,
+      "sigma_angle_urad": 200,
+      "sigma_range_m": 120,
+      "overrides": {
+        "epsilon_r": 1500.0,
+        "epsilon_v": 75.0,
+        "sigma_angle": 0.0002,
+        "sigma_range": 120.0
+      },
+      "planning_level": "P3",
+      "measurement_level": "M4"
+    },
+    {
+      "id": "M4P4",
+      "family": "measurement",
+      "planning_position_m": 2000,
+      "planning_velocity_m_s": 100,
+      "sigma_angle_urad": 200,
+      "sigma_range_m": 120,
+      "overrides": {
+        "epsilon_r": 2000.0,
+        "epsilon_v": 100.0,
+        "sigma_angle": 0.0002,
+        "sigma_range": 120.0
+      },
+      "planning_level": "P4",
+      "measurement_level": "M4"
+    }
+  ],
+  "design": "Four planning levels at reference100urad50m plus full4x4 measurement-noise-by-planning grid. Twenty unique conditions; all three methods reoptimized in every scene."
+}

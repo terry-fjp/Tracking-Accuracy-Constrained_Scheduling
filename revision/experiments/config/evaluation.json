@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "position_velocity_thresholds": [
+    [
+      500,
+      25
+    ],
+    [
+      1000,
+      50
+    ],
+    [
+      1500,
+      75
+    ],
+    [
+      2000,
+      100
+    ]
+  ],
+  "baseline_pair": [
+    500,
+    25
+  ],
+  "scope": "Actual-error acceptance only. Planning thresholds vary by config/experiments.json.",
+  "interval_s": [
+    120,
+    900
+  ]
+}

@@ -1,0 +1,1 @@
+{"status": "PASS", "jacobian_relative_error": 4.3068215748474353e-10, "acceleration_potential_relative_error": 5.003304996462083e-11, "zero_J2_exact": true, "step_halving_position_m": 5.342943308846102e-08, "step_halving_velocity_m_s": 5.184917541096811e-11}

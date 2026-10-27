@@ -1,0 +1,8 @@
+{
+  "variant": "IP-AD-W07",
+  "warning": 0.7,
+  "hold_s": 200,
+  "extended_multiplier": 1.5,
+  "ranking_weights": [0.5, 0.3, 0.2],
+  "selection": "Chosen after the nine-setting sensitivity study; not a historical default or global optimum."
+}
